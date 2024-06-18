@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Ground_Controller : MonoBehaviour
 {
+    [SerializeField] private Game_Manager game_Manager;
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private Game_Manager gm;
+
     void Update()
     {
-        if (gm.isStarted == true)
-        {
-        transform.Translate(0f,_moveSpeed*Time.deltaTime,0f);
+        if(game_Manager._isStart == true && game_Manager._isDead == false && game_Manager._isEnd == false) {
+            transform.Translate(0f, _moveSpeed * Time.deltaTime, 0f);
         }
     }
-    
-    
 }
